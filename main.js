@@ -1,46 +1,11 @@
-const height = 90;
+const scores = [10, 20, 30];
 
-// if (height == "90"){
-if (height === "90"){
-    console.log("height is " + height);
-} else {
-    console.log("height is NOT " + height);
+for (score of scores){
+    console.log(score);
 }
 
-const signal = "b";
+// for(初期値;繰り返す条件;増減 ++ --)
 
-if (signal ==="r"){
-    console.log("definitely stop");
-} else if (signal === "y"){
-    console.log("stop");
-} else {
-    console.log("walk");
+for (let i = 0; i< 10; i++){
+    console.log(i);
 }
-
-const speed = 60;
-
-if (signal ==="b"){
-    if (speed >= 60){
-        console.log("speed over");
-    }
-}
-
-const signal_1 = "r";
-const signal_2 = "b";
-
-// AND OR
-if (signal_1 === "r" && signal_2 === "b"){
-    console.log("r and b");
-}
-
-if (signal_1 === "r" || signal_2 === "b"){
-    console.log("r or b");
-}
-
-// 三項演算子　if else
-// 条件 ? T : F
-const score = 80;
-
-const comment = score > 80 ? "good" : "not good";
-
-console.log(comment);
