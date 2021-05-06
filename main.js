@@ -1,11 +1,29 @@
-const scores = [10, 20, 30];
-
-for (score of scores){
-    console.log(score);
+function test (){
+    console.log("test");
 }
 
-// for(初期値;繰り返す条件;増減 ++ --)
+test();
 
-for (let i = 0; i< 10; i++){
-    console.log(i);
+const comment = "comment";
+
+function getcComment (string){
+    console.log(string);
 }
+
+getcComment(comment);
+
+
+function getNumberOfComment(){
+    return 5;
+}
+
+console.log(getNumberOfComment());
+
+
+function sumPrice(int1, int2){
+    let int3 = int1 + int2;
+    return int3;
+}
+
+console.log(sumPrice(3,5))
+
