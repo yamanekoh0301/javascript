@@ -1,39 +1,46 @@
-const array = [1,2,3];
+const height = 90;
 
-const array_2 = [["r","bl","y"],["g","p","bk"]];
+// if (height == "90"){
+if (height === "90"){
+    console.log("height is " + height);
+} else {
+    console.log("height is NOT " + height);
+}
 
+const signal = "b";
 
-console.log(array_2[0][2])
+if (signal ==="r"){
+    console.log("definitely stop");
+} else if (signal === "y"){
+    console.log("stop");
+} else {
+    console.log("walk");
+}
 
+const speed = 60;
 
-const member = {
-    name : "honda",
-    height : 180,
-    hobby : "soccer"
-};
-
-console.log(member.name)
-
-
-const member_2 = {
-    "honda": {
-    height : 180,
-    hobby : "soccer"
-    },
-    "kagawa":{
-        height : 170,
-        hobby : "soccer"
+if (signal ==="b"){
+    if (speed >= 60){
+        console.log("speed over");
     }
-};
+}
 
-console.log(member_2.kagawa.height)
+const signal_1 = "r";
+const signal_2 = "b";
 
+// AND OR
+if (signal_1 === "r" && signal_2 === "b"){
+    console.log("r and b");
+}
 
-const test_1 =4;
-let test_2 =3;
+if (signal_1 === "r" || signal_2 === "b"){
+    console.log("r or b");
+}
 
-test_2 +=3
+// 三項演算子　if else
+// 条件 ? T : F
+const score = 80;
 
-const test_3 = test_1 + test_2;
+const comment = score > 80 ? "good" : "not good";
 
-console.log(test_3)
+console.log(comment);
