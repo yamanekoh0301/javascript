@@ -1,47 +1,38 @@
-const fruits = [
-    "apple", "banana"
-];
+const test = {
+    test1:10,
+    test2:20,
+    test3:30
+};
 
-console.log(fruits);
+console.log(Object.values(test));
+for (x of Object.values(test)){
+    console.log(x);
+}
 
-fruits.push("orange")
+// const postalCode = "123-4567";
 
-console.log(fruits);
+const postal = {
+    postalCode:"123-4567",
 
-// callback（無名関数）
-fruits.forEach(function(input){
-    console.log(input);
-})
+    checkPostalCode(){
+        const replaced = this.postalCode.replace("-", "");
+        const length = replaced.length;
+        if(length === 7){
+            return true;
+        }
+        return false;
+    }
+}
 
-console.log("===========================================")
+// function checkPostalCode(string){
+//     const replaced = string.replace("-", "");
+//     const length = replaced.length;
+//     if(length === 7){
+//         return true;
+//     }
+//     return false;
+// }
+console.log(postal.postalCode)
+console.log(postal.checkPostalCode(this.postalCode))
 
-// アロー関数（ES6から）
-// 関数名あり
-const getItem = () => {console.log("allow")}
-getItem()
-
-console.log("===========================================")
-
-// 関数名なし
-fruits.forEach(input => console.log(input));
-
-console.log("===========================================")
-
-console.log("<<Array.filter>>")
-// Array.filter
-const scores = [10,20,30,40];
-const newScores = scores.filter(value => value >= 30);
-console.log(newScores);
-
-console.log("<<Array.find>>")
-// Array.find
-const members = ["honda", "kagawa", "nagatomo"];
-const member = members.find(value => value === "nagatomo");
-console.log(member);
-
-console.log("<<Array.map>>")
-// Array.map 配列をもとに新しい配列を作成
-const userList = [10,20,30,40];
-const userIdList = userList.map(value => `user_${value}`);
-console.table(userIdList);
 
