@@ -1,29 +1,8 @@
-function test (){
-    console.log("test");
-}
+const test = "test";
+const test2 = " test2 ";
 
-test();
-
-const comment = "comment";
-
-function getcComment (string){
-    console.log(string);
-}
-
-getcComment(comment);
-
-
-function getNumberOfComment(){
-    return 5;
-}
-
-console.log(getNumberOfComment());
-
-
-function sumPrice(int1, int2){
-    let int3 = int1 + int2;
-    return int3;
-}
-
-console.log(sumPrice(3,5))
-
+console.log(test.concat(test2));
+console.log(test2.trim());
+console.log(test2.substring(0,3));
+console.log(test2.substring(3));
+console.log(test2.replace("2","3"));
