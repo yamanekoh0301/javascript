@@ -1,38 +1,17 @@
-const test = {
-    test1:10,
-    test2:20,
-    test3:30
-};
+const person = {
 
-console.log(Object.values(test));
-for (x of Object.values(test)){
-    console.log(x);
-}
+    name : "honda",
+    age : 30,
 
-// const postalCode = "123-4567";
+    getName() {
+        console.log(this.name);
+        return this;
+    },
 
-const postal = {
-    postalCode:"123-4567",
-
-    checkPostalCode(){
-        const replaced = this.postalCode.replace("-", "");
-        const length = replaced.length;
-        if(length === 7){
-            return true;
-        }
-        return false;
+    getAge() {
+        console.log(this.age);
+        return this;
     }
 }
 
-// function checkPostalCode(string){
-//     const replaced = string.replace("-", "");
-//     const length = replaced.length;
-//     if(length === 7){
-//         return true;
-//     }
-//     return false;
-// }
-console.log(postal.postalCode)
-console.log(postal.checkPostalCode(this.postalCode))
-
-
+person.getName().getAge();
