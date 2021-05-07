@@ -8,13 +8,21 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-    
-    <p class="border-red">aaa</p>
-    <p>aaa</p>
-    <p>aaa</p>
+    <div id="test" class="test_list1">
+        <ul>
+            <li class="test_list2">test1</li>
+            <li class="test_list2">test2</li>
+            <li class="test_list2">test3</li>
+        </ul>
+    </div>
 
-    <span class="border-red">bbb</span>
-    <span>bbb</span>
-    <span>bbb</span>
+    <script>
+        const test = document.getElementById("test");
+        const testList = document.querySelector(".test_list1");
+        const testLists = document.querySelectorAll(".test_list2");
+        console.log(test);
+        console.log(testList);
+        console.log(testLists);
+    </script>
 </body>
 </html>
