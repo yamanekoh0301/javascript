@@ -12,27 +12,25 @@
     </style>
 </head>
 <body>
-    <div id="test" class="test_list">
-        <ul>
-            <li class="test_lists blue">test1</li>
-            <li class="test_lists">test2</li>
-            <li class="test_lists">test3</li>
-        </ul>
-    </div>
+    <input id="test">aaa</input>
 
     <script>
-        const test = document.getElementById('test');
-        test.classList.add('red');
+        // 要素の作成
+        const input = document.getElementById('test');
 
-        const testList = document.querySelector(".test_list");
-        const testLists_1 = document.querySelector(".test_lists");
-        testLists_1.classList.remove('blue');
+        // attribute（属性）の作成
+        input.type = 'text';
+        input.placeholder = 'bbb';
+        input.name = 'text';
+        input.textContent= 'This is test.';
+        console.log(input);
         
-        const testLists_2 = document.querySelectorAll(".test_lists");
-        
-        console.log(test);
-        console.log(testList);
-        console.log(testLists_2);
+        //タグ作成と属性の追加
+        const anchor = document.createElement('a');
+        anchor.href = 'https://google.com';
+        anchor.target = '_brank';
+        anchor.textContent = 'link';
+        console.log(anchor);
     </script>
 </body>
 </html>
