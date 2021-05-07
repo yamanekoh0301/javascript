@@ -6,23 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/app.css">
+    <style>
+        .red{color: red;}
+        .blue{color: blue;}
+    </style>
 </head>
 <body>
-    <div id="test" class="test_list1">
+    <div id="test" class="test_list">
         <ul>
-            <li class="test_list2">test1</li>
-            <li class="test_list2">test2</li>
-            <li class="test_list2">test3</li>
+            <li class="test_lists blue">test1</li>
+            <li class="test_lists">test2</li>
+            <li class="test_lists">test3</li>
         </ul>
     </div>
 
     <script>
-        const test = document.getElementById("test");
-        const testList = document.querySelector(".test_list1");
-        const testLists = document.querySelectorAll(".test_list2");
+        const test = document.getElementById('test');
+        test.classList.add('red');
+
+        const testList = document.querySelector(".test_list");
+        const testLists_1 = document.querySelector(".test_lists");
+        testLists_1.classList.remove('blue');
+        
+        const testLists_2 = document.querySelectorAll(".test_lists");
+        
         console.log(test);
         console.log(testList);
-        console.log(testLists);
+        console.log(testLists_2);
     </script>
 </body>
 </html>
