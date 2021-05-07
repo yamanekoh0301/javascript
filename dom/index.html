@@ -12,25 +12,49 @@
     </style>
 </head>
 <body>
-    <input id="test">aaa</input>
+    <!-- example1====================================================== -->
+    <div id="grand_father">
+        <div id="parent">
+            <div id="target">
+                me
+            </div>
+        </div>
+    </div>
+    <!--  example2 ======================================================= -->    
+    <div id="divList">
+        <div class="div1">test1</div>
+        <div class="div2">test2</div>
+        <div class="div3">test3</div>
+    </div>
 
     <script>
-        // 要素の作成
-        const input = document.getElementById('test');
+        // example1=========================================================
+        const target = document.getElementById('target');
+        const newDiv = document.createElement('div');
+        newDiv.id = 'test';
+        newDiv.classList.add('red');
+        newDiv.textContent = 'test';
+        // 対象要素の下の階層に追加
+        target.appendChild(newDiv)
+        // 対象要素と同じ階層に追加
+        target.parentNode.appendChild(newDiv)
 
-        // attribute（属性）の作成
-        input.type = 'text';
-        input.placeholder = 'bbb';
-        input.name = 'text';
-        input.textContent= 'This is test.';
-        console.log(input);
+        // example2=========================================================
+        const targetList = document.getElementById('divList');
+        const reference = document.querySelector('.div2');
+        const newElement = document.createElement('div');
+
+        newElement.classList.add("div4");
+        newElement.textContent = 'ADD';
+        targetList.insertBefore(newElement,reference);
+
+        // 対象要素と同じ階層の次の要素
+        console.log(reference.nextElementSibling)
+        // 対象要素の下の階層の最初の要素
+        console.log(targetList.firstElementChild)
+        // 対象要素の下の階層の最初のノード
+        console.log(targetList.firstChild)
         
-        //タグ作成と属性の追加
-        const anchor = document.createElement('a');
-        anchor.href = 'https://google.com';
-        anchor.target = '_brank';
-        anchor.textContent = 'link';
-        console.log(anchor);
     </script>
 </body>
 </html>
