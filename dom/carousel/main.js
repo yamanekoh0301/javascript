@@ -2,10 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   setInterval(()=> {
-  let target = currentIndex + 1;
-  if (target === images.length){
-    target = 0;
-  }
+  let target = Math.floor(Math.random() * images.length);
   document.querySelectorAll('.carousel__thumbnails > li')[target].click();    
   }, 2000);
 });
