@@ -2,9 +2,14 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forms</title>
+    <style>
+        .w300{
+            width: 300px;
+        }
+    </style>
 </head>
 <body>
     <form id="form_test1">
@@ -14,6 +19,11 @@
         <input type="email" placeholder="Please input email.">email<br>
         <input type="radio" name="gender">male<br>
         <input type="radio" name="gender">female<br>
+
+        <input type="file" name="image_file">
+        <br>
+        <img src="" name="preview" class="w300">
+        
         <input type="submit" value="send">
         <select></select>
         <textarea></textarea>
