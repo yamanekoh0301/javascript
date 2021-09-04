@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        // # 59
+        // =================================================
+        // 関数
+        function test1(){
+            return 'func1'
+        }
+        console.log(test1());
+
+        // 変数や定数に代入
+        const test2_1 = function(){
+            return 'func2_1'
+        }
+        console.log(test2_1());
+
+        const test2_2 = ()=>{
+            return 'func2-2'
+        }
+        console.log(test2_2());
+
+        // Promise
+        // 1 状態(ok/ng)と値
+        // 2 Promiseチェーン
+
+        // callback
+        // 引数が状態ok,ng(1つでも可)
+
+        function promiseTest1(){ //インプットなし
+            return new Promise( ok => {
+                // （状態の値(ok)を書いてから）処理を記載
+                ok('promisetest1');
+            });
+        }
+        console.log(promiseTest1());
+        
+        const promiseTest2 = new Promise( ok => {
+            ok('pomisetest2');
+        });
+        
+        console.log(promiseTest2);
+
+        function promiseTest3(input){
+            return new Promise( ok => {
+        // （状態の値(ok)を書いてから）処理を記載
+                ok(`プロミス${input}です`);
+            });
+        };
+        console.log(promiseTest3('太郎'));
+
+        // プロミスチェーン
+        // Promise.then (ok_callback) 
+        // Promise.then ((ok_value) => {})
+        // Promise.catch (ng_callback)  
+        // Promise.catch (ng_reason) => {})
+
+        console.log('<<promiseTest4>>')
+
+        function promiseTest4(pay){
+            return new Promise( ok => {
+                let change4_1 = pay - 100;
+                ok(change4_1);
+            })
+        };
+        console.log(promiseTest4(300));
+        
+        promiseTest4(300).then(change4_1 => {
+            console.log(change4_1);
+            return promiseTest4(change4_1); //promiseでラップ　ok(value)
+        }).then(change4_2 => {
+            console.log(change4_2);
+        })
+        // =================================================
+        // # 60
+        // ngも追加
+        // new Promise((ok, ng) => {})
+
+        console.log('<<promiseTest5>>')
+
+        function promiseTest5(pay){
+            return new Promise( (ok, ng) => {
+                if (pay > 100){
+                let change5_1 = pay - 100;
+                ok(change5_1);
+                }
+                ng('足りません');
+            })
+        };
+        // console.log(promiseTest5(80).catch( e =>{console.log(e)}));
+        
+        promiseTest5(180).then(change5_1 => {
+            console.log(change5_1);
+            return promiseTest5(change5_1); //promiseでラップ　ok(value)
+        }).then(change5_2 => {
+            console.log(change5_2);
+        }).catch( e => console.log(e))
+
+    </script>
+</body>
+</html>
