@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        // # 59
+        // # 58
         // =================================================
         // 関数
         function test1(){
@@ -46,7 +46,7 @@
             ok('pomisetest2');
         });
         
-        console.log(promiseTest2);
+        console.log(promiseTest2); //functionは使用してないのでpromiseTest1と異なり()は不要
 
         function promiseTest3(input){
             return new Promise( ok => {
@@ -56,7 +56,8 @@
         };
         console.log(promiseTest3('太郎'));
 
-        // プロミスチェーン
+        // #59 プロミスチェーン
+        // =================================================
         // Promise.then (ok_callback) 
         // Promise.then ((ok_value) => {})
         // Promise.catch (ng_callback)  
@@ -78,8 +79,9 @@
         }).then(change4_2 => {
             console.log(change4_2);
         })
-        // =================================================
+
         // # 60
+        // =================================================
         // ngも追加
         // new Promise((ok, ng) => {})
 
