@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -98,12 +98,33 @@
         };
         // console.log(promiseTest5(80).catch( e =>{console.log(e)}));
         
-        promiseTest5(180).then(change5_1 => {
+        promiseTest5(300).then(change5_1 => {
             console.log(change5_1);
             return promiseTest5(change5_1); //promiseでラップ　ok(value)
         }).then(change5_2 => {
             console.log(change5_2);
         }).catch( e => console.log(e))
+
+        // 61(promise非同期)⇒サーバーとのやりとり時間が不明
+        // ================================================
+        console.log(1);
+        promisetest6(300,2)
+        .then(change6_1 => promisetest6(change6_1, 3));
+        console.log(3);
+
+        function promisetest6(pay, seconds){
+            return new Promise((ok, ng) => {
+                setTimeout(()=>{
+                if (pay > 100){
+                let change6_1 = pay - 100;
+                console.log(`${seconds}秒、おつりは${change6_1}です。`)
+                ok(change6_1);
+                }
+                ng('足りません');
+            }, seconds * 1000)
+            })
+        }
+
 
     </script>
 </body>

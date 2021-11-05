@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice_promise</title>
+</head>
+<body>
+    <script>
+        function promisetest(pay){
+            return new Promise((ok, ng) => {
+                if (pay > 100){
+                let change = pay - 80;
+                ok(change)}
+                ng("NG");
+            })
+    };
+        promisetest(130).then(change => {
+            console.log(change);
+            return promisetest(change);
+        }).then(change2 => {
+            console.log(change2);
+        }).catch(e => console.log(e))
+
+
+    </script>
+    
+</body>
+</html>
