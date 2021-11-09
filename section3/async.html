@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function test1(){
+            return "func1";
+        }
+    console.log(test1())
+
+        // 非同期関数 戻り値がPromise =>状態(OK,NG)とそれぞれの値
+        // return => OK
+        // throw => NG
+        async function aTest1(){
+            return "async func1";
+        }
+    
+    console.log(aTest1().then(value => console.log(value)));
+
+    function waiting(seconds){
+        return new Promise(ok => {
+            setTimeout(()=>{
+                ok()
+            }, 1000*seconds)
+        })
+    }
+
+    async function aTest2(){
+        console.log(1)
+        await waiting(2)
+        console.log(3)
+    };
+
+    aTest2();
+
+    </script>
+</body>
+</html>
