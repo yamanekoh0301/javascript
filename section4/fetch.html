@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch</title>
+    <style>
+        .w300{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id='image' class='w300'></div>
+
+    <script>
+        const url = "https://dog.ceo/api/breeds/image/random";
+        const options = {
+            method:'GET'
+        };
+
+    const fetchTest1 = fetch(url, options);
+    console.log(fetchTest1);
+    //返り値はPromise
+
+    // APIがJSONで取得できるならresponse.json()でパース
+    const fetchTest2 = fetch(url, options)
+    .then(response => response.json());
+    console.log(fetchTest2);
+    
+    // データの取得を待ってから処理　=>　非同期処理が必要
+    // console.log(fetchTest2.message);
+
+    function fetchDogImage(url, options){
+        return fetch(url, options)
+    .then(response => response.json());
+    }
+
+    async function fetchImage(url, options){
+        const response = await fetchDogImage(url, options);
+        // console.log(response.message)
+
+        const imageDiv = document.getElementById('image');
+        const imageElement = document.createElement('img');
+        imageElement.src = response.message;
+        imageDiv.appendChild(imageElement);
+    }
+    
+    fetchImage(url, options);
+
+
+    </script>
+</body>
+</html>
