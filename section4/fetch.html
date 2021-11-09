@@ -33,10 +33,19 @@
     // データの取得を待ってから処理　=>　非同期処理が必要
     // console.log(fetchTest2.message);
 
+    // 返り値はPromiseオブジェクト　⇒　状態(OK,NG)、それぞれの値
     function fetchDogImage(url, options){
         return fetch(url, options)
-    .then(response => response.json());
-    }
+    .then(response => {
+        console.log(response.ok);
+        console.log(response.status);
+        //response.okでfetchが成功したか判定(fetchだけではサーバー側のエラーでもrejectしない)
+        if(response.ok){
+            return response.json()
+        }
+        throw new Error('Error!!');
+    }).catch(e => console.log(e.message))
+}
 
     async function fetchImage(url, options){
         const response = await fetchDogImage(url, options);
