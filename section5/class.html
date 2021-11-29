@@ -8,9 +8,22 @@
 </head>
 <body>
     <script>
-        class Product{
+        class BaseProduct{
+
+            echoProduct(){
+                console.log("parent class");
+            }
+
+            // 子クラスで同じ関数があればオーバーライドされる。
+            getProduct(){
+                console.log("parent function");
+            }
+        }
+
+        class Product extends BaseProduct{
             constructor(productName){//pythonでのdef __init__
                 // this.product = productName;
+                super(); //子クラスでconstructorを使うなら必須
                 this.product = [productName]
             } 
 
@@ -22,14 +35,21 @@
             addProduct(item){
                 this.product.push(item);
             }
+
+            static testProduct(){
+                console.log("Static method")
+            }
         }
 
+        Product.testProduct();
+        
         const product = new Product('test');
         console.log(product.product);
 
         product.getProduct();
         product.addProduct('added');
         product.getProduct();
+        product.echoProduct();
 
     </script>
 </body>
