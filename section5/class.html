@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Product{
+            constructor(productName){//pythonでのdef __init__
+                // this.product = productName;
+                this.product = [productName]
+            } 
+
+            // メソッド(関数)はfunctionは不要
+            getProduct(){
+                console.log(this.product);
+            }
+
+            addProduct(item){
+                this.product.push(item);
+            }
+        }
+
+        const product = new Product('test');
+        console.log(product.product);
+
+        product.getProduct();
+        product.addProduct('added');
+        product.getProduct();
+
+    </script>
+</body>
+</html>
